@@ -15,7 +15,7 @@ from reportlab.platypus import Image, Paragraph, SimpleDocTemplate, Spacer, Tabl
 GITHUB_LINK = "https://github.com/huybitvvt/Ex_HocMay_NguyenDoanHuy.git"
 RESULTS_CSV = "optimization_results.csv"
 CURVES_IMG = "training_curves.png"
-PDF_PATH = "optimization_cifar10_report.pdf"
+PDF_PATH = "optimization_cifar10_NguyenDoanHuy.pdf"
 
 
 def register_fonts():
@@ -143,20 +143,6 @@ def build_report():
     story.append(Paragraph(
         "Chế độ chạy: FULL RUN; số epoch: 20; batch size: 128; device: cuda",
         styles["SubVN"],
-    ))
-
-    story.append(Paragraph("B1. CNN cơ bản", styles["HeadingVN"]))
-    story.append(Paragraph(
-        "Ở bước đầu tiên, em xây dựng một CNN cơ bản, không dùng Batch Normalization, không dùng Dropout và train bằng SGD. "
-        "Cấu hình này được dùng làm baseline để so sánh với các mô hình cải tiến.",
-        styles["BodyVN"],
-    ))
-
-    story.append(Paragraph("B2. Cải tiến mô hình", styles["HeadingVN"]))
-    story.append(Paragraph(
-        "Sau khi có baseline, em thêm Batch Normalization sau các lớp convolution và thêm Dropout ở phần classifier. "
-        "Em thử hai mức Dropout là 0.2 và 0.5, đồng thời so sánh hai optimizer là SGD + Momentum và Adam.",
-        styles["BodyVN"],
     ))
 
     story.append(Paragraph("B3. Bảng so sánh", styles["HeadingVN"]))
